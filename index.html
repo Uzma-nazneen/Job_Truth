@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Truth — Verify Before You Apply</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Modern responsive typography setup -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Outfit', var(--font-sans);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Floating Frosted Glass Apple-like Header -->
+    <header>
+      <div class="nav-container">
+        <a class="logo-link" id="nav-logo" href="#">
+          <img class="logo-img" src="job_truth_logo.png" alt="Job Truth Logo">
+          <span class="serif-title">Job Truth</span>
+        </a>
+        <nav>
+          <span class="nav-link active" id="link-home">Home</span>
+          <span class="nav-link" id="link-analyzer">Job Analyser</span>
+          <span class="nav-link" id="link-metrics">Model Analytics</span>
+          <span class="nav-link" id="link-dashboard" style="display: none;">My History</span>
+        </nav>
+        <div class="auth-group" id="header-auth-section">
+          <button class="nav-btn" id="header-login-btn">Sign In</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTION 1: HOME/LANDING SCREEN -->
+    <main class="screen active" id="screen-home">
+      <div class="hero-wrapper">
+        <div class="hero-tag">Hire Analytics Dashboard</div>
+        <h1 class="hero-title serif-title">Verify before you apply.<br>Detect fake job posts.</h1>
+        <p class="hero-desc">
+          "Job Truth" uses machine learning algorithms trained on clean job advertisement data to find fraudulent job listings. Ensure your data security and focus only on verified career opportunities.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center;">
+          <button class="btn btn-primary" id="home-cta-btn">Start Analysing Now</button>
+          <button class="btn btn-secondary" id="home-sec-btn">Learn About the Models</button>
+        </div>
+      </div>
+
+      <div class="section-wrapper feature-section">
+        <h2 class="serif-title" style="font-size: 32px; text-align: center; margin-bottom: 56px;">Designed for Applicant Protection</h2>
+        
+        <div class="grid-3">
+          <div class="card feat-card">
+            <div class="feat-icon">⚡</div>
+            <h3 class="card-title">NLP Phrase Analysis</h3>
+            <p style="font-size: 14px; color: var(--text-muted);">
+              Scans description texts for deceptive keywords and spam-like patterns (e.g. wire transfer deposits, daily processing agents) to assess legitimacy.
+            </p>
+          </div>
+          
+          <div class="card feat-card">
+            <div class="feat-icon">📊</div>
+            <h3 class="card-title">Structural Safety Audit</h3>
+            <p style="font-size: 14px; color: var(--text-muted);">
+              Inspects job meta-data including company logos, screening questions, expected average salaries, and description length parameters.
+            </p>
+          </div>
+          
+          <div class="card feat-card">
+            <div class="feat-icon">🔒</div>
+            <h3 class="card-title">Personal History Log</h3>
+            <p style="font-size: 14px; color: var(--text-muted);">
+              Log in to store your verification records, view details of past listings, and keep a clean dashboard of your job-hunting footprint.
+            </p>
+          </div>
+        </div>
+
+        <!-- Model Accuracy Badges -->
+        <div style="text-align: center; margin-top: 80px;">
+          <p style="font-size: 13px; text-transform: uppercase; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em;">Machine Learning Performance</p>
+          <div class="accuracy-badge-group">
+            <div class="accuracy-badge">
+              <span class="accuracy-badge-val">97.3%</span>
+              <span class="accuracy-badge-lbl">Random Forest<br>Classifier</span>
+            </div>
+            <div class="accuracy-badge">
+              <span class="accuracy-badge-val">96.8%</span>
+              <span class="accuracy-badge-lbl">Multinomial NB<br>Classifier</span>
+            </div>
+            <div class="accuracy-badge">
+              <span class="accuracy-badge-val">96.2%</span>
+              <span class="accuracy-badge-lbl">Logistic<br>Regression</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- SECTION 2: JOB DESCRIPTION ANALYSER -->
+    <div class="screen" id="screen-analyzer">
+      <div class="section-wrapper">
+        <h2 class="serif-title" style="font-size: 36px; margin-bottom: 12px;">Job Verification Analyser</h2>
+        <p style="color: var(--text-muted); margin-bottom: 40px; max-width: 700px;">
+          Paste a job description and key details below. Our system will analyze the text patterns and structural signals to calculate a safety rating.
+        </p>
+
+        <div class="grid-2">
+          <!-- Left: Input Form -->
+          <div class="card">
+            <h3 class="card-title">Listing Details</h3>
+            <form id="analyzer-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="job-title">Job Title *</label>
+                  <input class="form-input" type="text" id="job-title" placeholder="e.g. Marketing Intern" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="job-company">Company Name</label>
+                  <input class="form-input" type="text" id="job-company" placeholder="e.g. Food52">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="job-salary">Salary Range (if specified)</label>
+                  <input class="form-input" type="text" id="job-salary" placeholder="e.g. 40000-55000">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="job-industry">Industry Sector</label>
+                  <input class="form-input" type="text" id="job-industry" placeholder="e.g. Computer Software">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="job-desc">Job Description Body *</label>
+                <textarea class="form-input" id="job-desc" rows="8" placeholder="Paste the full job description text here..." required style="resize: vertical; min-height: 120px;"></textarea>
+              </div>
+
+              <!-- Switches -->
+              <div style="margin-bottom: 24px;">
+                <label class="form-label" style="margin-bottom: 12px;">Structural Identifiers</label>
+                
+                <div class="switch-group">
+                  <div>
+                    <div style="font-size: 14px; font-weight: 600;">Includes Company Profile</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">The poster provides a brief history of the company.</div>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" id="switch-profile" checked>
+                    <span class="slider"></span>
+                  </label>
+                </div>
+
+                <div class="switch-group">
+                  <div>
+                    <div style="font-size: 14px; font-weight: 600;">Has Company Logo</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">A verified visual brand logo is displayed on the post.</div>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" id="switch-logo" checked>
+                    <span class="slider"></span>
+                  </label>
+                </div>
+
+                <div class="switch-group">
+                  <div>
+                    <div style="font-size: 14px; font-weight: 600;">Includes Screening Questions</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">Applicant must answer specific questions on submission.</div>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" id="switch-questions">
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <button class="btn btn-primary btn-full" type="submit" id="submit-analysis-btn">Submit Posting for Audit</button>
+            </form>
+          </div>
+
+          <!-- Right: Output Panel -->
+          <div class="card" id="analyzer-result-card" style="display: flex; flex-direction: column; justify-content: center; min-height: 400px;">
+            <!-- Initial State -->
+            <div id="result-placeholder" class="empty-state">
+              <div class="empty-state-icon">🛡️</div>
+              <h3 class="serif-title" style="font-size: 20px; color: var(--text-main); margin-bottom: 8px;">Awaiting Job Post</h3>
+              <p style="font-size: 14px; max-width: 300px; margin: 0 auto;">
+                Submit a job description on the left. The natural language engine will audit its authenticity signals.
+              </p>
+            </div>
+
+            <!-- Loading State -->
+            <div id="result-loading" style="display: none; text-align: center;">
+              <div style="width: 40px; height: 40px; border: 3px solid var(--border-color); border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
+              <p style="font-weight: 500;">Performing Safety Audit...</p>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Analyzing text density, keywords, and metadata metrics.</p>
+            </div>
+            
+            @keyframes spin {
+              to { transform: rotate(360deg); }
+            }
+
+            <!-- Complete Results State -->
+            <div id="result-output" class="result-container" style="display: none;">
+              <div class="score-circle-wrapper">
+                <div class="score-circle">
+                  <svg width="100" height="100">
+                    <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                    <circle class="circle-bar" id="score-ring" cx="50" cy="50" r="45"></circle>
+                  </svg>
+                  <div class="score-text" id="score-val">85%</div>
+                </div>
+                <div>
+                  <div style="font-size: 12px; text-transform: uppercase; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; margin-bottom: 4px;">Authenticity Score</div>
+                  <h3 class="serif-title" style="font-size: 24px; line-height: 1.2;" id="result-title">Moderately Safe</h3>
+                </div>
+              </div>
+
+              <div class="verdict-banner" id="verdict-banner-box">
+                <span id="verdict-icon">✓</span>
+                <span id="verdict-msg">This listing displays high structural markers of standard job postings.</span>
+              </div>
+
+              <div>
+                <h4 style="font-size: 14px; text-transform: uppercase; font-weight: 700; color: var(--text-muted); letter-spacing: 0.05em; margin-bottom: 8px;">Audit Factors Breakdown</h4>
+                <ul class="analysis-bullets" id="analysis-bullets-list">
+                  <!-- JS generated list items -->
+                </ul>
+              </div>
+
+              <div>
+                <h4 style="font-size: 14px; text-transform: uppercase; font-weight: 700; color: var(--text-muted); letter-spacing: 0.05em; margin-bottom: 8px;">Deceptive Phrase Audit</h4>
+                <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 8px;">Highlighted phrases matched against known fraudulent job listings in the database:</p>
+                <div class="keyword-tags" id="matched-keywords-box">
+                  <!-- JS tags -->
+                </div>
+              </div>
+
+              <!-- Risk Indicators Panel -->
+              <div id="risk-indicators-section" style="display: none; border-top: 1px solid var(--border-color); padding-top: 16px; margin-top: 8px;">
+                <h4 style="font-size: 14px; text-transform: uppercase; font-weight: 700; color: var(--danger); letter-spacing: 0.05em; margin-bottom: 8px;">Deceptive Risk Signals</h4>
+                <ul class="analysis-bullets" id="risk-indicators-list">
+                  <!-- JS tags -->
+                </ul>
+              </div>
+              
+              <div id="save-history-notice" style="font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 16px; margin-top: 8px;">
+                <!-- Filled dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: MODEL METRICS PAGE -->
+    <div class="screen" id="screen-metrics">
+      <div class="section-wrapper">
+        <h2 class="serif-title" style="font-size: 36px; margin-bottom: 12px;">Model Performance & Diagnostics</h2>
+        <p style="color: var(--text-muted); margin-bottom: 48px; max-width: 800px;">
+          Explore details about the predictive machine learning models built using the original job listings corpus. The algorithms downsampled the dataset to 1,732 balanced data points to bypass major class representation anomalies.
+        </p>
+
+        <div class="grid-2" style="margin-bottom: 48px;">
+          <!-- Model Accuracy Bar Chart -->
+          <div class="card">
+            <h3 class="card-title">Algorithm Accuracy Comparison</h3>
+            <p class="card-subtitle">Performance comparison based on text TF-IDF and structural feature matrices.</p>
+            
+            <div class="chart-container">
+              <div class="chart-bar-wrapper">
+                <div class="chart-bar" data-value="97.3%" style="height: 97.3%;"></div>
+                <div class="chart-label">Random Forest</div>
+              </div>
+              <div class="chart-bar-wrapper">
+                <div class="chart-bar" data-value="96.8%" style="height: 96.8%;"></div>
+                <div class="chart-label">Multinomial NB</div>
+              </div>
+              <div class="chart-bar-wrapper">
+                <div class="chart-bar" data-value="96.2%" style="height: 96.2%;"></div>
+                <div class="chart-label">Logistic Reg.</div>
+              </div>
+              <div class="chart-bar-wrapper">
+                <div class="chart-bar" data-value="95.1%" style="height: 95.1%;"></div>
+                <div class="chart-label">Decision Tree</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Confusion Matrix -->
+          <div class="card">
+            <h3 class="card-title">Classifier Confusion Matrix</h3>
+            <p class="card-subtitle">Standard validation predictions on the downsampled test corpus (Random Forest).</p>
+            
+            <div class="matrix-grid">
+              <div></div>
+              <div class="matrix-label-top">Predicted Actual Label</div>
+              
+              <div class="matrix-label-side">Actual Label</div>
+              
+              <!-- True Negative -->
+              <div class="matrix-cell true-positive">
+                <div class="matrix-val">171</div>
+                <div class="matrix-lbl">True Real</div>
+              </div>
+              <!-- False Positive -->
+              <div class="matrix-cell false-positive">
+                <div class="matrix-val">3</div>
+                <div class="matrix-lbl">False Fake</div>
+              </div>
+              
+              <!-- False Negative -->
+              <div class="matrix-cell false-negative">
+                <div class="matrix-val">5</div>
+                <div class="matrix-lbl">False Real</div>
+              </div>
+              <!-- True Positive -->
+              <div class="matrix-cell true-positive">
+                <div class="matrix-val">168</div>
+                <div class="matrix-lbl">True Fake</div>
+              </div>
+            </div>
+            
+            <div style="margin-top: 24px; font-size: 13px; color: var(--text-muted); text-align: center;">
+              Highly balanced classifications prove the TF-IDF representation handles fraudulent indicators with minimal error rates.
+            </div>
+          </div>
+
+          <!-- The Real-World Evaluation Challenge (Class Imbalance Analysis) -->
+          <div class="card" style="grid-column: span 2; border-color: rgba(220, 38, 38, 0.3); background-color: var(--danger-light);">
+            <h3 class="card-title" style="color: var(--danger);">The Real-World Evaluation Trap (Class Imbalance)</h3>
+            <div style="font-size: 14.5px; line-height: 1.6; color: var(--text-main); display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+              <div>
+                <p style="margin-bottom: 12px;">
+                  <strong>The Accuracy Paradox:</strong> In the original job posting corpus, only <strong>4.84%</strong> (866 out of 17,880) of listings are fraudulent. A naive model that classifies every job as "legitimate" would achieve an accuracy of <strong>95.16%</strong>. Thus, standard validation accuracy is highly optimistic.
+                </p>
+                <p>
+                  <strong>Evaluating Imbalance Performance:</strong> In a real-world scenario (95% Legitimate vs 5% Fraudulent), the Random Forest model achieves a high sensitivity (recall) of <strong>97.3%</strong>, catching almost all scams. However, due to the sheer size of the legitimate pool, the model generates false flags.
+                </p>
+              </div>
+              <div>
+                <p style="margin-bottom: 12px;">
+                  <strong>True Positive Predictive Value (Precision):</strong> When deployed in production on the full imbalanced corpus:
+                  <ul style="padding-left: 20px; margin-top: 8px;">
+                    <li><strong>True Positives caught:</strong> ~842 fake job posts.</li>
+                    <li><strong>False Positives (legitimate jobs flagged as fake):</strong> ~459 flags.</li>
+                    <li><strong>Actual Precision:</strong> <strong>~64.7%</strong> (only 2 out of 3 flagged jobs are actually fraudulent).</li>
+                  </ul>
+                </p>
+                <p style="margin-top: 12px;">
+                  This highlights why standard accuracy metrics are overly optimistic, and why practical evaluations must prioritize precision-recall trade-offs over raw accuracy.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Key Insights & Methodology</h3>
+          <div style="font-size: 15px; color: var(--text-main); display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+            <div>
+              <p style="margin-bottom: 16px;">
+                <strong>1. The Company Profile Heuristic:</strong> Statistical analysis shows that one of the strongest features in identifying fraud is the presence of a detailed <code>company_profile</code>. Out of the fraudulent listings analysed in the Jupyter dataset, over 80% did not include any background description of the hiring firm.
+              </p>
+              <p>
+                <strong>2. Spam Keyword Density:</strong> Text modeling confirms fraudulent job postings depend heavily on templated promotional phrases. The system flags words like "immediate wire transfer", "envelope stuffing", and "package handler" which show extremely high conditional probabilities in the Multinomial Naive Bayes model.
+              </p>
+            </div>
+            <div>
+              <p style="margin-bottom: 16px;">
+                <strong>3. The Logistical Bias Check:</strong> Over 75% of fraudulent job postings in the database did not offer screening questions (<code>has_questions = 0</code>). This serves as a vital structural signal because legitimate employers tend to incorporate questionnaires to parse large applicant queues.
+              </p>
+              <p>
+                <strong>4. Description Length Indicators:</strong> Real job descriptions follow normal distributions in length, usually outlining detailed technical tasks and company operations. Fraudulent jobs display high kurtosis, tending to be either extremely brief (under 500 characters) or excessively filled with formatting spam.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: USER HISTORY DASHBOARD (Visible to logged-in users) -->
+    <div class="screen" id="screen-dashboard">
+      <div class="section-wrapper">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px;">
+          <div>
+            <h2 class="serif-title" style="font-size: 36px; margin-bottom: 8px;" id="dashboard-welcome">Welcome Back</h2>
+            <p style="color: var(--text-muted);">Track your checked listings and keep your job applications safe.</p>
+          </div>
+          <button class="btn btn-secondary" id="logout-btn">Log Out</button>
+        </div>
+
+        <!-- Metric summaries -->
+        <div class="grid-3" style="margin-bottom: 48px;">
+          <div class="card" style="padding: 24px; text-align: center;">
+            <div style="font-size: 36px; font-weight: 700; color: var(--primary);" id="stat-total">0</div>
+            <div style="font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; margin-top: 4px;">Total Jobs Checked</div>
+          </div>
+          <div class="card" style="padding: 24px; text-align: center;">
+            <div style="font-size: 36px; font-weight: 700; color: var(--success);" id="stat-safe">0</div>
+            <div style="font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; margin-top: 4px;">Verified Safe</div>
+          </div>
+          <div class="card" style="padding: 24px; text-align: center;">
+            <div style="font-size: 36px; font-weight: 700; color: var(--danger);" id="stat-danger">0</div>
+            <div style="font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; margin-top: 4px;">Flagged Suspicious</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Your Verification History</h3>
+          <p class="card-subtitle">A chronological record of listings submitted by your account.</p>
+
+          <div id="history-items-container" class="history-list">
+            <!-- Dynamically populated or empty state -->
+            <div class="empty-state">
+              <div class="empty-state-icon">📂</div>
+              <p>No job postings audited yet. Go to the Job Analyser to check your first listing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AUTH MODAL (Login/Registration) -->
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 class="serif-title" id="auth-modal-title">Sign In</h2>
+        <p style="font-size: 14px; color: var(--text-muted);" id="auth-modal-subtitle">Access your personalized Job Truth account.</p>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label" for="login-email">Email Address</label>
+          <input class="form-input" type="email" id="login-email" required placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="login-pass">Password</label>
+          <input class="form-input" type="password" id="login-pass" required placeholder="••••••••">
+        </div>
+        <div id="auth-error-msg" style="display: none; color: var(--danger); font-size: 13px; margin-bottom: 16px; text-align: center;"></div>
+        <button class="btn btn-primary btn-full" type="submit">Sign In</button>
+      </form>
+
+      <!-- Signup Form (Hidden by default) -->
+      <form id="signup-form" style="display: none;">
+        <div class="form-group">
+          <label class="form-label" for="signup-name">Full Name</label>
+          <input class="form-input" type="text" id="signup-name" required placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="signup-email">Email Address</label>
+          <input class="form-input" type="email" id="signup-email" required placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="signup-pass">Password</label>
+          <input class="form-input" type="password" id="signup-pass" required placeholder="At least 6 characters">
+        </div>
+        <div id="signup-error-msg" style="display: none; color: var(--danger); font-size: 13px; margin-bottom: 16px; text-align: center;"></div>
+        <button class="btn btn-primary btn-full" type="submit">Create Account</button>
+      </form>
+
+      <div class="modal-footer">
+        <span id="auth-toggle-text">Don't have an account?</span>
+        <a href="#" id="auth-toggle-link" style="font-weight: 600; margin-left: 4px;">Sign Up</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
